@@ -58,7 +58,7 @@ st.title("🏗️ 管材切割与拼接工程助手")
 
 # 侧边栏
 st.sidebar.header("参数设置")
-kerf = st.sidebar.number_input("锯缝宽度 (m)", value=0.003,min_value=0.001, step=0.001,  format="%.3f")
+kerf = st.sidebar.number_input("锯缝宽度 (m)", value=0.003,min_value=0.000, step=0.001,  format="%.3f")
 stock_options = [float(s.strip()) for s in
                  st.sidebar.text_input("可选原材(m), 用逗号分隔", value="6.0, 9.0, 12.0").split(",")]
 
@@ -121,4 +121,5 @@ if st.button("🚀 运行最优规划"):
         # 文字清单
         for scheme, count in best['方案详情'].items():
             st.write(f"模式 [{' + '.join([f'{i:.3f}m' for i in scheme])}]: 执行 {count} 次")
+
 
